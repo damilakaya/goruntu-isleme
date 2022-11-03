@@ -1,0 +1,13 @@
+from PIL import Image
+
+img = Image.open("1.kare.png")
+
+pixels = img.load()
+
+for x in range(img.size[0]):
+    for y in range(img.size[1]):
+        a,b,c = pixels[x,y][0],pixels[x,y][1],pixels[x,y][2]
+        a,b,c = abs(a-255), abs(b-255), abs(c-255)
+        pixels[x,y] = (a,b,c)
+
+img.show()
